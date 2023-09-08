@@ -13,7 +13,7 @@
 ## Быстрый путь к успеху
 - Создаем файл ```.env``` с настройками подключения. Пример в файле ```.env_example```.
 (По умолчанию 9600 бод, 1 старт бит, 8 битов данных, 1 стоп бит, бит четности even.
-- ```npm init```
+- ```npm i```
 - ```npm start```
 
 ## Формат посылок
@@ -40,7 +40,7 @@ It is made purely for testing IoT device made for reading meter values, based on
 ## Quick way to results
 - Create ```.env``` file, set RS485/RS232 connection params there. Example is in ```.env_example``` file. 
 Defaults are: 9600, bits: 1 start, 8 data, 1 stop, even parity.
-- ```npm init```
+- ```npm i```
 - ```npm start```
 
 ## General request/response frame structure
