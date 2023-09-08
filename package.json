@@ -1,0 +1,21 @@
+{
+  "name": "ce2727a-emulator-js",
+  "version": "1.0.0",
+  "description": "Tiny emulator (only 3 commands) of power meter CE2727A | Микро эмулятор счетчика электроэнергии ЦЭ2727А",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": {
+    "name": "Anton Viktorov",
+    "email": "anton.viktorov@live.com",
+    "url": "https://github.com/latonita"
+  },
+  "repository": "github:latonita/ce2727a-emulator-js",
+  "license": "ISC",
+  "dependencies": {
+    "bcd-date": "^2.1.3",
+    "dotenv": "^16.3.1",
+    "serialport": "^12.0.0"
+  }
+}
