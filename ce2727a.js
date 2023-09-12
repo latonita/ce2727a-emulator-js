@@ -65,6 +65,13 @@ const COM = {
 
         }
     },
+    C02: {
+        SIZE_CMD: 0x0E,
+        SIZE_REPLY: 0x12,
+        POS: {
+            POWER_WATTS: 0,
+        }
+    },
     C03: {
         SIZE_CMD: 0x0E,
         SIZE_REPLY: 0x23,
@@ -237,6 +244,21 @@ function checkCommandAndExecute(inputBuffer, cbWritePort) {
                 replyBuffer[POS.DATA_BLOCK + COM.C01.POS.WEEKDAY] = dayOfWeekByte;
                 replyBuffer[POS.DATA_BLOCK + COM.C01.POS.DST_ALLOWED] = 0;
                 replyBuffer[POS.DATA_BLOCK + COM.C01.POS.CORRECTION] = 0;
+
+                crc16iec(replyBuffer, true);
+
+                console.log(`Output: ${toHexString(replyBuffer)}`);
+
+                cbWritePort(replyBuffer);
+
+                break;
+
+            case 2: // Чтение текущего значения активной мощности
+                console.log("Command 01:02 ENQ Current average active power");
+                properCommand = true;
+
+                replyBuffer = createReply(CMD.ENQ, 0x02, COM.C02.SIZE_REPLY);
+                writeUint32(replyBuffer, POS.DATA_BLOCK + COM.C02.POS.POWER_WATTS, getRandomInt(10000));
 
                 crc16iec(replyBuffer, true);
 

@@ -8,8 +8,10 @@ const ce2727a = require('./ce2727a.js');
 const interval = +process.env.INTERVAL_MS || 50; // time limit in milliseconds to receive one command
 const maxBufferSize = 64; // max buffer for command
 
+const path =  process.env.PORT || 'COM1';
+
 const port = new SerialPort({
-    path: process.env.PORT || 'COM1',
+    path,
     baudRate: +process.env.BAUDRATE || 9600,
     dataBits: +process.env.DATABITS || 8,
     parity: process.env.PARITY || "even",
@@ -32,7 +34,7 @@ const writePort = (buf) => {
 }
 
 ce2727a.setSerialNumber(0x003e2c5e);
-console.log('CE2727A Emulator started. Supported ENQ commands: 00, 01, 03');
+console.log(`CE2727A Emulator started on port ${path}. Supported ENQ commands: 00, 01, 02, 03`);
 
 parser.on('data', buffer => ce2727a.checkCommandAndExecute(buffer, writePort));
 port.on('error', err => console.log('Error: ', err.message));

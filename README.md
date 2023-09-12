@@ -4,9 +4,10 @@
 ![ce2727a](images/overview.png)
 
 Эмулятор поддерживает три основные команды:
-- Чтение информации о счетчике
-- Чтение даты и времени
-- Чтение текущих накоплений энергии нарастающим итогом по тарифам
+- 00 Чтение информации о счетчике
+- 01 Чтение даты и времени
+- 02 Чтение текущего значения активной мощности
+- 03 Чтение текущих накоплений энергии нарастающим итогом по тарифам
 
 Эмулятор создан для разработки и тестирования IoT устройства для снятия показаний через RS485. 
 
@@ -31,9 +32,10 @@
 # Tiny emulator of CE2727A power meter for RS485/RS232
 
 Emulator supports emulation of 3 basic enquiry commands:
-- Get meter information
-- Get date/time
-- Get consumed energy
+- 00 Get meter information
+- 01 Get date/time
+- 02 Get active power
+- 03 Get consumed energy
 
 It is made purely for testing IoT device made for reading meter values, based on [a protocol description document](docs/протокол_обмена_07_04.pdf) found in the internet.
 
