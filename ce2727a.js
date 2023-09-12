@@ -1,8 +1,8 @@
 const crc16iec = require('./crc16iec.js');
 const bcdDate = require('bcd-date');
 
-const getRandomInt = () => {
-    return Math.floor(Math.random() * 100000);
+const getRandomInt = (max = 100000) => {
+    return Math.floor(Math.random() * max);
 }
 
 const Meter = {
